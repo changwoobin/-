@@ -7,15 +7,33 @@ ArrayData::ArrayData():ArrayData(3)
 
 ArrayData::ArrayData(const int& capacity):capacity(capacity), used(0)
 {
-	cout << "ìƒì„±ìž" << endl;
-	data = new double[this->capacity];
+	//data = make_shared<double[]>(capacity);
+	data = make_unique<double[]>(this->capacity);
 }
+
+ArrayData::ArrayData(ArrayData& arr)
+	: ArrayData(arr.capacity)
+{
+	cout << "º¹»ç »ý¼ºÀÚ" << endl;
+	used = arr.used;
+	for (int i = 0; i < used; i++) {
+		this->data[i] = arr.data[i];
+	}
+}
+
+ArrayData::ArrayData(ArrayData&& arr) noexcept
+	:capacity(arr.capacity), used(arr.used), data(move(arr.data))
+{
+	cout << "ÀÌµ¿ »ý¼ºÀÚ" << endl;
+}
+
+
 
 ArrayData::~ArrayData() 
 {
-	if (data != nullptr)
+	/*if (data != nullptr)
 		delete[] data;
-	data = nullptr;
+	data = nullptr;*/
 }
 
 void ArrayData::addElement(const double& num) 
@@ -23,7 +41,7 @@ void ArrayData::addElement(const double& num)
 	if (!full())
 		data[used++] = num;
 	else
-		cout << "ë¹ˆë°©ì´ ì—†ìŒ\n";
+		cout << "ºó¹æÀÌ ¾øÀ½\n";
 }
 
 bool ArrayData::full() const 
