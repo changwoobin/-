@@ -1,0 +1,19 @@
+#include "CMyPoint.h"
+#include <iostream>
+using namespace std;
+
+ostream& operator<<(ostream& out, const CMyPoint& p)
+{
+    out << "( " << p.getX() << " , " << p.getY() << " )";
+    return out;
+}
+
+int CMyPoint::getX() const
+{
+    return x;
+}
+
+int CMyPoint::getY() const
+{
+    return y;
+}
