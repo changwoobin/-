@@ -17,3 +17,13 @@ int CMyPoint::getY() const
 {
     return y;
 }
+
+bool CMyPoint::operator<(const CMyPoint& p)
+{
+    return x < p.getX();
+}
+
+bool CMyPoint::operator>(const CMyPoint& p)
+{
+    return x > p.getX();
+}
