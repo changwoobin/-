@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "CMyPoint.h"
+#include "Stack.h"
 using namespace std;
 
 template <typename T>
@@ -42,7 +43,32 @@ void sortAsc(T(&arr)[N]) {
 }
 
 int main() {
-	int intArr[]{ 3,5,1,4,2 };
+
+	Stack<CMyPoint> istack;
+	istack.push(CMyPoint(1, 2));
+	istack.push(CMyPoint(2, 3));
+	istack.push(CMyPoint(3, 4));
+	istack.push(CMyPoint(4, 5));
+	istack.push(CMyPoint(5, 6));
+
+	CMyPoint iItem;
+	while (istack.pop(iItem)) {
+		cout << iItem << endl;
+	}
+
+	/*Stack<int> istack;
+	istack.push(10);
+	istack.push(20);
+	istack.push(30);
+	istack.push(40);
+	istack.push(50);
+
+	int iItem;
+	while (istack.pop(iItem)) {
+		cout << iItem << endl;
+	}*/
+
+	/*int intArr[]{ 3,5,1,4,2 };
 	double doubleArr[]{ 2.2,3.5,4.5 };
 	string strArr[]{ "greenjoa01","greenjoa02", "greenjoa03" };
 	char charArr[]{ 'a','b','c',0 };
@@ -50,7 +76,7 @@ int main() {
 	CMyPoint arr[]{ CMyPoint(20 ,30),CMyPoint(10, 20), CMyPoint(40 ,50) };
 
 	sortAsc(arr);
-	showArr(arr);
+	showArr(arr);*/
 
 	/*showArr(intArr);
 	showArr(doubleArr);*/
