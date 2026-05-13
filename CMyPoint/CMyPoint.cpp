@@ -27,3 +27,10 @@ bool CMyPoint::operator>(const CMyPoint& p)
 {
     return x > p.getX();
 }
+
+CMyPoint CMyPoint::operator=(const CMyPoint& p)
+{
+    this->x = p.getX();
+    this->y = p.getY();
+    return *this;
+}

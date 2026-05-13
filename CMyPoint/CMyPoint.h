@@ -14,6 +14,7 @@ public:
 	int getY() const;
 	bool operator<(const CMyPoint& p);
 	bool operator>(const CMyPoint& p);
+	CMyPoint operator=(const CMyPoint& p);
 };
 
 ostream& operator<<(ostream& out, const CMyPoint& p);
